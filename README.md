@@ -30,3 +30,16 @@ The below are the list of tools and framework used in the project!
 The below are the add-on as feature.
 * Swagger-UI
 * Docker
+
+
+## Product Endpoint
+The below are the endpoints that are exposed to GET PUT products!
+
+
+### GET Product
+
+
+
+
+
+
