@@ -34,7 +34,6 @@ The below are the endpoints that are exposed to GET PUT products!
 
 
 ### GET Product
-
 This endpoint gets all the products from database.
 
 ```
@@ -42,8 +41,6 @@ GET /commercetools/api/v1/products HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
 Authorization: Basic dXNlcjpwYXNzd29yZA==
-cache-control: no-cache
-Postman-Token: a1cb6b97-b1e3-4132-9dd4-a776f6d1c78b
 ```
 Response from RestAPI.
 ```
@@ -68,8 +65,43 @@ Response from RestAPI.
     }
 ]
 ```
+### PUT Product
+This endpoint allows the user to add a new product.
+
+```
+PUT /commercetools/api/v1/product/add HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"productId": "drinks"
+}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+
+Response from RestAPI
+```
+<<Auto Generated id>>
+```
 
 
+### GET Product by productId
+This endpoint gets the product for a given productId from database.
+
+```
+GET /commercetools/api/v1/product/stock?productId=drinks HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+
+Response from RestAPI
+```
+{
+    "productId": "drinks",
+    "requestTimestamp": "2019-05-31T12:09:27.652Z",
+    "stock": []
+}
+```
 ## Extract Feature enabled:
 The below are the add-on as feature.
 * Swagger-UI
