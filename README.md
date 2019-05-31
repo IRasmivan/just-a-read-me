@@ -15,18 +15,18 @@ The below are the add-on as feature.
 ## Description:
 This project is an Rest API, developed in JAVA using spring framework. It have the below functionality implemented on the below area.
 
-# Product
+### Product
 * Adding of product
 * Get all the products from backend
 * Get the product and the associated stock for a given productId
 
-# Stock
+### Stock
 * Get the stock for provided productId
 * Add stock for an product
 * Updated stock for an existing stock.
 
-# Invoice
+### Invoice
 * Add invoice for an product to record sales.
 
-# Statistic
+### Statistic
 * Get the statistic for today or lastMonth, listing TopAvailableProduct and TopSellingProduct for the given range.
