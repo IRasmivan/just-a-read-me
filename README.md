@@ -26,10 +26,7 @@ The below are the list of tools and framework used in the project!
 * Java Programming language
 * MySQL as backend
 
-## Extract Feature enabled:
-The below are the add-on as feature.
-* Swagger-UI
-* Docker
+
 
 
 ## Product Endpoint
@@ -38,8 +35,41 @@ The below are the endpoints that are exposed to GET PUT products!
 
 ### GET Product
 
+This endpoint gets all the products from database.
+
+```
+GET /commercetools/api/v1/products HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+cache-control: no-cache
+Postman-Token: a1cb6b97-b1e3-4132-9dd4-a776f6d1c78b
+```
+Response from RestAPI.
+```
+[
+    {
+        "id": 1,
+        "productId": "cake",
+        "stock": [
+            {
+                "id": "2",
+                "quantity": 100,
+                "timestamp": "2019-05-29T22:55:01.754Z"
+            }
+        ],
+        "invoice": [
+            {
+                "id": "1",
+                "quantity": 99,
+                "timestamp": "2019-05-29T22:55:01.754Z"
+            }
+        ]
+    }
+```
 
 
-
-
-
+## Extract Feature enabled:
+The below are the add-on as feature.
+* Swagger-UI
+* Docker
