@@ -72,7 +72,7 @@ Content-Type: application/json
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 {
 	"productId": "drinks"
-}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+}
 ```
 
 Response from RestAPI
@@ -198,7 +198,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 	"productId": "veg",
 	"timestamp": "2019-05-30T09:53:53.390Z",
 	"quantity": 229
-}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+}
 ```
 
 
@@ -224,7 +224,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 	"productId": "veg",
 	"timestamp": "2019-05-31T10:53:53.390Z",
 	"quantity": 229
-}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+}
 ```
 
 
@@ -242,6 +242,17 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     ]
 }
 ```
+
+## Statistic Endpoint
+This endpoint list the top 3 available stock and top 3 sales products for the users.
+
+#### Description:
+* Check if the User have given valid time (today or lastMonth). If its invalid time, then respond user as InvalidStatisticTimeException with message as 'Invalid time for statistics, Please provide a valid value'.
+* If there are no stock available for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as 'There are no product that was available for provided <<time>>'.
+* If there are stock available but less than 3 for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as 'There are only <<count of available stock>> product that had sales for <<time>>'.
+* If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided <<time>>'.
+* If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only <<count of sales>> product that had sales for <<time>>'.
+	 
 
 ## Extract Feature enabled:
 The below are the add-on as feature.
