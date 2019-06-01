@@ -176,7 +176,12 @@ This endpoint will help update existing stock.
 * If user provided a invalid stockId in the request JSON, then respond user as ErroneousJsonException with message as 'Invalid Request :: Reason - Invalid stockid'.
 * If user provided a timestamp which for an existing stock with an older timestamp to update, then respond with HTTP status as 204 No Content.
 * If a valid JSON request is provided, Since I have implemented catche, the catched values are refreshed so that the GET request can use the data from catche to service.
-	
+
+**Special Case**
+* To Enable Concurrent requests for getting the stock for an productId. 
+>> If a Stock is found for a productId, The request HTTP header is checked for key 'if-Match' and the value is checked if the value matches the current database version for the stock.
+>> If match, the stock is updated
+>> else, http status precondition failed exception is thrown to user. 
 
 ### Update stock for Invalid JSON (One Sample Request)
 
