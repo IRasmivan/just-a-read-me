@@ -186,8 +186,31 @@ For concurrent requests for updating the same stock.
 
 ### Update stock for Invalid JSON (One Sample Request)
 
+#### Request
+
+```
+POST /commercetools/api/v1/stock/update HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+If-Match: 20
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"id":"100",
+	"productId": "veg",
+	"timestamp": "2019-05-30T09:53:53.390Z",
+	"quantity": 229
+}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
 
 
+#### Response
+
+```
+{
+    "message": "Invalid Request :: Reason - Invalid stockid",
+    "statusCode": "BAD_REQUEST"
+}
+```
 
 
 ## Extract Feature enabled:
