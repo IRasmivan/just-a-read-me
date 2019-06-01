@@ -173,8 +173,10 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 ---
-### 3.3 Add new stock
+### 3.3 Add new stock: __(Additional Feature)__
+
 This endpoint is only to add a new stock. I have not added any validation for this endpoint in particular.
+
 #### Request
 ```
 PUT /commercetools/api/v1/stock/add HTTP/1.1
@@ -205,14 +207,15 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ## 4. Statistic Endpoint
 This endpoint list the top 3 available stock and top 3 sales products for the users.
 
-#### Description:
+### 4.1 Getting Statistic
+
+#### Description of scenario:
 * Check if the User have given valid time (today or lastMonth). If its invalid time, then respond user as InvalidStatisticTimeException with message as 'Invalid time for statistics, Please provide a valid value'.
 * If there are no stock available for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as "There are no product that was available for provided 'time'".
 * If there are stock available but less than 3 for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as "There are only 'count of available stock' product that had sales for 'time'".
 * If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided 'time'".
 * If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only 'count of sales' product that had sales for 'time'".
 
-### 4.1 Getting Statistic (One Sample Request)
 
 #### Request
 ```
@@ -246,7 +249,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 ---
 
-## 5. Product Endpoint
+## 5. Product Endpoint: __(Additional Feature)__
 
 The below are the endpoints that are exposed to GET PUT products!
 
@@ -305,7 +308,9 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 ---
 ### 5.3 GET Product by productId
+
 This endpoint gets the product for a given productId from database.
+
 #### Request
 ```
 GET /commercetools/api/v1/product/stock?productId=drinks HTTP/1.1
@@ -323,7 +328,38 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 ---
 
+## 6. Invoice Endpoint
 
+To add sales for an product, I have added this endpoint so that we can add sales!
+
+### 6.1 Add Invoice:
+
+#### Description of scenario covered:
+* Check if the productId exist for the request invoice that needs to be added, if not a valid productId then respond user with message "Error while saving data  - Product not found".
+
+##### Request
+
+```
+PUT /commercetools/api/v1/invoice/add HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"productId": "veg",
+	"timestamp": "2019-05-29T22:55:01.754Z",
+	"quantity": 99
+}
+```
+
+##### Response
+
+```
+{
+    "id": "1",
+    "quantity": 99,
+    "timestamp": "2019-05-29T22:55:01.754Z"
+}
+```
 
 ## Extract Feature enabled:
 The below are the add-on as feature.
