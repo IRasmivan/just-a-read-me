@@ -178,7 +178,7 @@ This endpoint will help in updating the existing stock.
 * If a valid JSON request is provided. Since I have implemented cache, the cached values are refreshed so that the GET request can use the data from cache.
 
 **Special Case**
-* To Enable Concurrent requests for updating the stock for the productId. 
+For concurrent requests for updating the same stock. 
 * If a Stock is found for a productId, Then
 	+ The request HTTP header is checked for a key 'if-Match' and the value from if-Match key is validated with the current stock version. if TRUE,  then
 		+ The stock is updated
