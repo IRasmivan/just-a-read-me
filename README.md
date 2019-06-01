@@ -26,9 +26,6 @@ The below are the list of tools and framework used in the project!
 * Java Programming language
 * MySQL as backend
 
-
-
-
 ## Product Endpoint
 The below are the endpoints that are exposed to GET PUT products!
 
@@ -102,6 +99,19 @@ Response from RestAPI
     "stock": []
 }
 ```
+
+
+## Stock Endpoint
+The below are the endpoints that are exposed to GET PUT PATCH Stock!
+
+### GET Stock By Product Id
+
+This endpoint will list all the stock that are available for the given ProductId. This endpoint covers the below scenarios.
+
+* To enable **CONCURRENT REQUEST** for getting the stock for the productId. If stock is found for the productId, then populate response header with key **ETAG** and value for the key with **VERSION** column value from stock table for the given productId.
+* The requested stock for the given productid will be searched from the inmemory **CACHE**, if available the data will be served to the user else it will be searched from the stocktable.
+* If there are **NO STOCK AVAILABLE** for the productId, then I have populated an attribute called StockMessage which has message as 'There are no stock available for this productId'.
+* Check if the user have given valid productId for the stock. If it is **INVALID PRODUCTID**, then respond user as ErroneousJsonException with message as 'Product not found'.
 
 
 
