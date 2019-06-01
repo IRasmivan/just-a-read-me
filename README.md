@@ -252,7 +252,42 @@ This endpoint list the top 3 available stock and top 3 sales products for the us
 * If there are stock available but less than 3 for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as "There are only 'count of available stock' product that had sales for 'time'".
 * If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided 'time'".
 * If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only 'count of sales' product that had sales for 'time'".
-	 
+
+### Getting Statistic (One Sample Request)
+
+#### Request
+```
+GET /commercetools/api/v1/statistics?time=lastMonth HTTP/1.1
+Host: localhost:8080
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+
+#### Response
+```
+{
+    "requestTimestamp": "2019-06-01T21:44:56.073Z",
+    "range": "lastMonth",
+    "topAvailableProductMessage": "There are only 2 product that had available for lastMonth",
+    "topAvailableProducts": [
+        {
+            "id": "1",
+            "timestamp": "2019-05-31T10:53:53.390Z",
+            "productId": "veg",
+            "quantity": 229
+        },
+        {
+            "id": "2",
+            "timestamp": "2019-05-29T22:55:01.754Z",
+            "productId": "drinks",
+            "quantity": 98
+        }
+    ],
+    "topSellingProductsMessage": "There are no sales available on any product for lastMonth"
+}
+```
+
+
+
 
 ## Extract Feature enabled:
 The below are the add-on as feature.
