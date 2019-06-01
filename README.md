@@ -179,9 +179,9 @@ This endpoint will help update existing stock.
 
 **Special Case**
 * To Enable Concurrent requests for getting the stock for an productId. 
->> If a Stock is found for a productId, The request HTTP header is checked for key 'if-Match' and the value is checked if the value matches the current database version for the stock.
->> If match, the stock is updated
->> else, http status precondition failed exception is thrown to user. 
+* >> If a Stock is found for a productId, The request HTTP header is checked for key 'if-Match' and the value is checked if the value matches the current database version for the stock.
+>> * If match, the stock is updated
+>> * else, http status precondition failed exception is thrown to user. 
 
 ### Update stock for Invalid JSON (One Sample Request)
 
