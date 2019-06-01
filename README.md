@@ -169,19 +169,20 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 
 ### UPDATE existing stock
-This endpoint will help update existing stock.
+This endpoint will help in updating the existing stock.
 
 #### Description:
-* If user provided a invalid productId in the request JSON, then respond user as ErroneousJsonException with message as 'Invalid Request :: Reason - Product not found'.
-* If user provided a invalid stockId in the request JSON, then respond user as ErroneousJsonException with message as 'Invalid Request :: Reason - Invalid stockid'.
-* If user provided a timestamp which for an existing stock with an older timestamp to update, then respond with HTTP status as 204 No Content.
-* If a valid JSON request is provided, Since I have implemented catche, the catched values are refreshed so that the GET request can use the data from catche to service.
+* If user provide a invalid productId in the request JSON, then respond user as ErroneousJsonException with a message 'Invalid Request :: Reason - Product not found'.
+* If user provide a invalid stockId in the request JSON, then respond user as ErroneousJsonException with a message 'Invalid Request :: Reason - Invalid stockid'.
+* If user provide a timestamp for an existing stock with an earlier timestamp to update, then respond with HTTP status as 204 No Content.
+* If a valid JSON request is provided. Since I have implemented cache, the cached values are refreshed so that the GET request can use the data from cache.
 
 **Special Case**
-* To Enable Concurrent requests for getting the stock for an productId. 
-	+ If a Stock is found for a productId, The request HTTP header is checked for key 'if-Match' and the value is checked if the value matches the current database version for the stock.
-		+ If match, the stock is updated
-		+ else, http status precondition failed exception is thrown to user. 
+* To Enable Concurrent requests for updating the stock for the productId. 
+* If a Stock is found for a productId, Then
+	+ The request HTTP header is checked for a key 'if-Match' and the value from if-Match key is validated with the current stock version. if TRUE,  then
+		+ The stock is updated
+	+ else, http status precondition failed exception is thrown to user. 
 
 ### Update stock for Invalid JSON (One Sample Request)
 
