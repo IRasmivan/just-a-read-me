@@ -37,13 +37,14 @@ The below are the endpoints that are exposed to GET PUT products!
 ### GET Product
 This endpoint gets all the products from database.
 
+#### Request
 ```
 GET /commercetools/api/v1/products HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
-Response from RestAPI.
+#### Response
 ```
 [
     {
@@ -71,7 +72,7 @@ Response from RestAPI.
 
 ### PUT Product
 This endpoint allows the user to add a new product.
-
+#### Request
 ```
 PUT /commercetools/api/v1/product/add HTTP/1.1
 Host: localhost:8080
@@ -82,22 +83,21 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-Response from RestAPI
+#### Response
 ```
 <<Auto Generated id>>
 ```
 ---
 ### GET Product by productId
 This endpoint gets the product for a given productId from database.
-
+#### Request
 ```
 GET /commercetools/api/v1/product/stock?productId=drinks HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
 Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
-
-Response from RestAPI
+#### Response
 ```
 {
     "productId": "drinks",
