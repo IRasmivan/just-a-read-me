@@ -109,9 +109,63 @@ The below are the endpoints that are exposed to GET PUT PATCH Stock!
 This endpoint will list all the stock that are available for the given ProductId. This endpoint covers the below scenarios.
 
 * To enable **CONCURRENT REQUEST** for getting the stock for the productId. If stock is found for the productId, then populate response header with key **ETAG** and value for the key with **VERSION** column value from stock table for the given productId.
-* The requested stock for the given productid will be searched from the inmemory **CACHE**, if available the data will be served to the user else it will be searched from the stocktable.
+* The requested stock for the given productid will be searched from the inmemory **CACHE**, if available the data will be served to the user else it will be searched from the stock table.
 * If there are **NO STOCK AVAILABLE** for the productId, then I have populated an attribute called StockMessage which has message as 'There are no stock available for this productId'.
 * Check if the user have given valid productId for the stock. If it is **INVALID PRODUCTID**, then respond user as ErroneousJsonException with message as 'Product not found'.
+
+### Getting stock for valid productid
+
+#### Request - Valid ProductId
+
+```
+GET /commercetools/api/v1/stock?productId=veg HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+
+#### Response - Valid ProductId
+
+**Response Body**
+```
+{
+    "productId": "veg",
+    "requestTimestamp": "2019-06-01T19:00:54.248Z",
+    "stock": [
+        {
+            "id": "1",
+            "timestamp": "2019-05-31T09:53:53.390Z",
+            "quantity": 229
+        }
+    ]
+}
+```
+
+**Response Header**
+```
+ETag: "20"
+```
+
+### Getting stock for invalid productid
+
+#### Request - InValid ProductId
+
+```
+GET /commercetools/api/v1/stock?productId=cake HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+
+#### Response - InValid ProductId
+
+**Response Body**
+```
+{
+    "message": "Invalid Request :: Reason - Product not found",
+    "statusCode": "BAD_REQUEST"
+}
+```
 
 
 
