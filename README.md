@@ -104,7 +104,7 @@ Response from RestAPI
 ## Stock Endpoint
 The below are the endpoints that are exposed to GET PUT PATCH Stock!
 
-### GET Stock By Product Id
+### :pushpin: GET Stock By Product Id
 
 This endpoint will list all the stock that are available for the given ProductId. This endpoint covers the below scenarios.
 
@@ -168,7 +168,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-### Update existing stock
+### :pushpin: Update existing stock
 This endpoint will help in updating the existing stock.
 
 #### Description:
