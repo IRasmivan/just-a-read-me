@@ -173,6 +173,35 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 ---
+### 3.3 Add new stock
+This endpoint is only to add a new stock. I have not added any validation for this endpoint in particular.
+#### Request
+```
+PUT /commercetools/api/v1/stock/add HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"productId": "drinks",
+	"timestamp": "2019-05-29T22:55:01.754Z",
+	"quantity": 98
+}
+```
+#### Response
+````
+{
+    "productId": "drinks",
+    "requestTimestamp": "2019-05-31T18:43:41.776Z",
+    "stock": [
+        {
+            "id": "2",
+            "timestamp": "2019-05-29T22:55:01.754Z",
+            "quantity": 98
+        }
+    ]
+}
+````
+---
 ## 4. Statistic Endpoint
 This endpoint list the top 3 available stock and top 3 sales products for the users.
 
@@ -218,8 +247,8 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ---
 
 ## 5. Product Endpoint
-The below are the endpoints that are exposed to GET PUT products!
 
+The below are the endpoints that are exposed to GET PUT products!
 
 ### 5.1 GET Product
 This endpoint gets all the products from database.
@@ -292,7 +321,6 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     "stock": []
 }
 ```
-
 ---
 
 
