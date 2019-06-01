@@ -1,27 +1,27 @@
-## Description:
+## 1. Description:
 This project is an Rest API, developed in JAVA using spring framework. It have the below functionality implemented on the below area.
 
 The one listed below as :pushpin: are the list of are part of the excisies.
 
-### Product
-* Adding of product
-* Get all the products from backend
-* Get the product and the associated stock for a given productId
-
-### Stock
+### 1.1 Stock
 * Get the stock for provided productId :pushpin:
 * Add stock for an product
 * Updated stock for an existing stock :pushpin:
 
-### Invoice
-* Add invoice for an product to record sales.
-
-### Statistic
+### 1.2 Statistic
 * Get the statistic for today or lastMonth, listing TopAvailableProduct and TopSellingProduct for the given range. :pushpin:
+
+### 1.3 Product
+* Adding of product
+* Get all the products from backend
+* Get the product and the associated stock for a given productId
+
+### 1.4 Invoice
+* Add invoice for an product to record sales.
 
 ---
 
-## Tools & framework:
+## 2. Tools & framework:
 The below are the list of tools and framework used in the project!
 * Spring Boot framework
 * Maven for Packaging and Build
@@ -30,21 +30,21 @@ The below are the list of tools and framework used in the project!
 
 ---
 
-## Stock Endpoint:
+## 3. Stock Endpoint:
 
 The below are the endpoints that are exposed to GET PUT PATCH Stock!
 
-### :pushpin: GET Stock By Product Id
+### 3.1 GET Stock By Product Id
 
 This endpoint will list all the stock that are available for the given ProductId. This endpoint covers the below scenarios.
 
-#### Description:
+#### Description of scenario covered:
 * To enable **CONCURRENT REQUEST** for getting the stock for the productId. If stock is found for the productId, then populate response header with key **ETAG** and value for the key with **VERSION** column value from stock table for the given productId.
 * The requested stock for the given productid will be searched from the inmemory **CACHE**, if available the data will be served to the user else it will be searched from the stock table.
 * If there are **NO STOCK AVAILABLE** for the productId, then I have populated an attribute called StockMessage which has message as 'There are no stock available for this productId'.
 * Check if the user have given valid productId for the stock. If it is **INVALID PRODUCTID**, then respond user as ErroneousJsonException with message as 'Product not found'.
 
-### Getting stock for valid productid
+### 3.1.1 Getting stock for valid productid
 
 #### Request - Valid ProductId
 ```
@@ -78,7 +78,7 @@ ETag: "20"
 
 ---
 
-### Getting stock for invalid productid
+### 3.1.2 Getting stock for invalid productid
 #### Request - InValid ProductId
 ```
 GET /commercetools/api/v1/stock?productId=cake HTTP/1.1
@@ -97,10 +97,10 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 ---
 
-### :pushpin: Update existing stock
+### 3.2 Update existing stock
 This endpoint will help in updating the existing stock.
 
-#### Description:
+#### Description of scenario covered:
 * If user provide a invalid productId in the request JSON, then respond user as ErroneousJsonException with a message 'Invalid Request :: Reason - Product not found'.
 * If user provide a invalid stockId in the request JSON, then respond user as ErroneousJsonException with a message 'Invalid Request :: Reason - Invalid stockid'.
 * If user provide a timestamp for an existing stock with an earlier timestamp to update, then respond with HTTP status as 204 No Content.
@@ -113,7 +113,7 @@ For concurrent requests for updating the same stock.
 		+ The stock is updated
 	+ else, http status precondition failed exception is thrown to user. 
 
-### Update stock for Invalid JSON (One Sample Request)
+### 3.2.1 Update stock for Invalid JSON (One Sample Request)
 
 #### Request
 ```
@@ -140,7 +140,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 ---
 
-### Update stock for Valid JSON (One Sample Request)
+### 3.2.2 Update stock for Valid JSON (One Sample Request)
 
 #### Request
 ```
@@ -173,7 +173,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 ---
-## Statistic Endpoint
+## 4. Statistic Endpoint
 This endpoint list the top 3 available stock and top 3 sales products for the users.
 
 #### Description:
@@ -183,7 +183,7 @@ This endpoint list the top 3 available stock and top 3 sales products for the us
 * If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided 'time'".
 * If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only 'count of sales' product that had sales for 'time'".
 
-### Getting Statistic (One Sample Request)
+### 4.1 Getting Statistic (One Sample Request)
 
 #### Request
 ```
@@ -217,13 +217,11 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 ---
 
-# Other Enpoint
-
-## Product Endpoint
+## 5. Product Endpoint
 The below are the endpoints that are exposed to GET PUT products!
 
 
-### GET Product
+### 5.1 GET Product
 This endpoint gets all the products from database.
 
 #### Request
@@ -259,7 +257,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 ---
 
-### PUT Product
+### 5.2 PUT Product
 This endpoint allows the user to add a new product.
 #### Request
 ```
@@ -277,7 +275,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 <<Auto Generated id>>
 ```
 ---
-### GET Product by productId
+### 5.3 GET Product by productId
 This endpoint gets the product for a given productId from database.
 #### Request
 ```
