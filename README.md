@@ -123,7 +123,6 @@ This endpoint will list all the stock that are available for the given ProductId
 ### Getting stock for valid productid
 
 #### Request - Valid ProductId
-
 ```
 GET /commercetools/api/v1/stock?productId=veg HTTP/1.1
 Host: localhost:8080
@@ -133,7 +132,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 #### Response - Valid ProductId
 
-**Response Body**
+##### Response Body
 ```
 {
     "productId": "veg",
@@ -148,7 +147,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-**Response Header**
+##### Response Header
 ```
 ETag: "20"
 ```
@@ -156,9 +155,7 @@ ETag: "20"
 ---
 
 ### Getting stock for invalid productid
-
 #### Request - InValid ProductId
-
 ```
 GET /commercetools/api/v1/stock?productId=cake HTTP/1.1
 Host: localhost:8080
@@ -167,8 +164,6 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ```
 
 #### Response - InValid ProductId
-
-**Response Body**
 ```
 {
     "message": "Invalid Request :: Reason - Product not found",
