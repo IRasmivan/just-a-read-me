@@ -108,6 +108,7 @@ The below are the endpoints that are exposed to GET PUT PATCH Stock!
 
 This endpoint will list all the stock that are available for the given ProductId. This endpoint covers the below scenarios.
 
+#### Description:
 * To enable **CONCURRENT REQUEST** for getting the stock for the productId. If stock is found for the productId, then populate response header with key **ETAG** and value for the key with **VERSION** column value from stock table for the given productId.
 * The requested stock for the given productid will be searched from the inmemory **CACHE**, if available the data will be served to the user else it will be searched from the stock table.
 * If there are **NO STOCK AVAILABLE** for the productId, then I have populated an attribute called StockMessage which has message as 'There are no stock available for this productId'.
@@ -166,6 +167,19 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     "statusCode": "BAD_REQUEST"
 }
 ```
+
+### UPDATE existing stock
+This endpoint will help update existing stock.
+
+#### Description:
+* If user provided a invalid productId in the request JSON, then respond user as ErroneousJsonException with message as 'Invalid Request :: Reason - Product not found'.
+* If user provided a invalid stockId in the request JSON, then respond user as ErroneousJsonException with message as 'Invalid Request :: Reason - Invalid stockid'.
+* If user provided a timestamp which for an existing stock with an older timestamp to update, then respond with HTTP status as 204 No Content.
+* If a valid JSON request is provided, Since I have implemented catche, the catched values are refreshed so that the GET request can use the data from catche to service.
+	
+
+### Update stock for Invalid JSON (One Sample Request)
+
 
 
 
