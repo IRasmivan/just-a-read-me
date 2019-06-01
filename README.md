@@ -168,7 +168,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-### UPDATE existing stock
+### Update existing stock
 This endpoint will help in updating the existing stock.
 
 #### Description:
