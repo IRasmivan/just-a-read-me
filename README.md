@@ -30,84 +30,8 @@ The below are the list of tools and framework used in the project!
 
 ---
 
-## Product Endpoint
-The below are the endpoints that are exposed to GET PUT products!
+## Stock Endpoint:
 
-
-### GET Product
-This endpoint gets all the products from database.
-
-#### Request
-```
-GET /commercetools/api/v1/products HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-Authorization: Basic dXNlcjpwYXNzd29yZA==
-```
-#### Response
-```
-[
-    {
-        "id": 1,
-        "productId": "cake",
-        "stock": [
-            {
-                "id": "2",
-                "quantity": 100,
-                "timestamp": "2019-05-29T22:55:01.754Z"
-            }
-        ],
-        "invoice": [
-            {
-                "id": "1",
-                "quantity": 99,
-                "timestamp": "2019-05-29T22:55:01.754Z"
-            }
-        ]
-    }
-]
-```
-
----
-
-### PUT Product
-This endpoint allows the user to add a new product.
-#### Request
-```
-PUT /commercetools/api/v1/product/add HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-Authorization: Basic dXNlcjpwYXNzd29yZA==
-{
-	"productId": "drinks"
-}
-```
-
-#### Response
-```
-<<Auto Generated id>>
-```
----
-### GET Product by productId
-This endpoint gets the product for a given productId from database.
-#### Request
-```
-GET /commercetools/api/v1/product/stock?productId=drinks HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-Authorization: Basic dXNlcjpwYXNzd29yZA==
-```
-#### Response
-```
-{
-    "productId": "drinks",
-    "requestTimestamp": "2019-05-31T12:09:27.652Z",
-    "stock": []
-}
-```
----
-
-## Stock Endpoint
 The below are the endpoints that are exposed to GET PUT PATCH Stock!
 
 ### :pushpin: GET Stock By Product Id
@@ -182,7 +106,7 @@ This endpoint will help in updating the existing stock.
 * If user provide a timestamp for an existing stock with an earlier timestamp to update, then respond with HTTP status as 204 No Content.
 * If a valid JSON request is provided. Since I have implemented cache, the cached values are refreshed so that the GET request can use the data from cache.
 
-**Special Case**
+##### Special Case
 For concurrent requests for updating the same stock. 
 * If a Stock is found for a productId, Then
 	+ The request HTTP header is checked for a key 'if-Match' and the value from if-Match key is validated with the current stock version. if TRUE,  then
@@ -292,6 +216,89 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 ---
+
+# Other Enpoint
+
+## Product Endpoint
+The below are the endpoints that are exposed to GET PUT products!
+
+
+### GET Product
+This endpoint gets all the products from database.
+
+#### Request
+```
+GET /commercetools/api/v1/products HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+#### Response
+```
+[
+    {
+        "id": 1,
+        "productId": "cake",
+        "stock": [
+            {
+                "id": "2",
+                "quantity": 100,
+                "timestamp": "2019-05-29T22:55:01.754Z"
+            }
+        ],
+        "invoice": [
+            {
+                "id": "1",
+                "quantity": 99,
+                "timestamp": "2019-05-29T22:55:01.754Z"
+            }
+        ]
+    }
+]
+```
+
+---
+
+### PUT Product
+This endpoint allows the user to add a new product.
+#### Request
+```
+PUT /commercetools/api/v1/product/add HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"productId": "drinks"
+}
+```
+
+#### Response
+```
+<<Auto Generated id>>
+```
+---
+### GET Product by productId
+This endpoint gets the product for a given productId from database.
+#### Request
+```
+GET /commercetools/api/v1/product/stock?productId=drinks HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+```
+#### Response
+```
+{
+    "productId": "drinks",
+    "requestTimestamp": "2019-05-31T12:09:27.652Z",
+    "stock": []
+}
+```
+
+---
+
+
+
 ## Extract Feature enabled:
 The below are the add-on as feature.
 * Swagger-UI
