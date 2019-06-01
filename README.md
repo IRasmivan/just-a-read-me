@@ -248,10 +248,10 @@ This endpoint list the top 3 available stock and top 3 sales products for the us
 
 #### Description:
 * Check if the User have given valid time (today or lastMonth). If its invalid time, then respond user as InvalidStatisticTimeException with message as 'Invalid time for statistics, Please provide a valid value'.
-* If there are no stock available for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as 'There are no product that was available for provided <<time>>'.
-* If there are stock available but less than 3 for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as 'There are only <<count of available stock>> product that had sales for <<time>>'.
-* If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided <<time>>'.
-* If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only <<count of sales>> product that had sales for <<time>>'.
+* If there are no stock available for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as "There are no product that was available for provided 'time'".
+* If there are stock available but less than 3 for the given time, then I have populated an attribute called TopAvailableProductMessage which has message as "There are only 'count of available stock' product that had sales for 'time'".
+* If there are no sales available for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are no product that was available for provided 'time'".
+* If there are stock sales but less than 3 for the given time, then I have populated an attribute called TopSellingProductsMessage which has message as 'There are only 'count of sales' product that had sales for 'time'".
 	 
 
 ## Extract Feature enabled:
