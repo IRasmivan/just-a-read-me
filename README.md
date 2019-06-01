@@ -19,12 +19,16 @@ The one listed below as :pushpin: are the list of are part of the excisies.
 ### Statistic
 * Get the statistic for today or lastMonth, listing TopAvailableProduct and TopSellingProduct for the given range. :pushpin:
 
+---
+
 ## Tools & framework:
 The below are the list of tools and framework used in the project!
 * Spring Boot framework
 * Maven for Packaging and Build
 * Java Programming language
 * MySQL as backend
+
+---
 
 ## Product Endpoint
 The below are the endpoints that are exposed to GET PUT products!
@@ -62,6 +66,9 @@ Response from RestAPI.
     }
 ]
 ```
+
+---
+
 ### PUT Product
 This endpoint allows the user to add a new product.
 
@@ -79,8 +86,7 @@ Response from RestAPI
 ```
 <<Auto Generated id>>
 ```
-
-
+---
 ### GET Product by productId
 This endpoint gets the product for a given productId from database.
 
@@ -99,7 +105,7 @@ Response from RestAPI
     "stock": []
 }
 ```
-
+---
 
 ## Stock Endpoint
 The below are the endpoints that are exposed to GET PUT PATCH Stock!
@@ -147,6 +153,8 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 ETag: "20"
 ```
 
+---
+
 ### Getting stock for invalid productid
 
 #### Request - InValid ProductId
@@ -167,6 +175,8 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     "statusCode": "BAD_REQUEST"
 }
 ```
+
+---
 
 ### :pushpin: Update existing stock
 This endpoint will help in updating the existing stock.
@@ -201,7 +211,6 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-
 #### Response
 ```
 {
@@ -209,6 +218,8 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     "statusCode": "BAD_REQUEST"
 }
 ```
+
+---
 
 ### Update stock for Valid JSON (One Sample Request)
 
@@ -242,7 +253,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     ]
 }
 ```
-
+---
 ## Statistic Endpoint
 This endpoint list the top 3 available stock and top 3 sales products for the users.
 
@@ -285,10 +296,7 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
     "topSellingProductsMessage": "There are no sales available on any product for lastMonth"
 }
 ```
-
-
-
-
+---
 ## Extract Feature enabled:
 The below are the add-on as feature.
 * Swagger-UI
