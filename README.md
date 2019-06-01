@@ -187,7 +187,6 @@ For concurrent requests for updating the same stock.
 ### Update stock for Invalid JSON (One Sample Request)
 
 #### Request
-
 ```
 POST /commercetools/api/v1/stock/update HTTP/1.1
 Host: localhost:8080
@@ -204,7 +203,6 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 
 
 #### Response
-
 ```
 {
     "message": "Invalid Request :: Reason - Invalid stockid",
@@ -212,6 +210,38 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
+### Update stock for Valid JSON (One Sample Request)
+
+#### Request
+```
+POST /commercetools/api/v1/stock/update HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+If-Match: 20
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+{
+	"id":"1",
+	"productId": "veg",
+	"timestamp": "2019-05-31T10:53:53.390Z",
+	"quantity": 229
+}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+
+
+#### Response
+```
+{
+    "productId": "veg",
+    "requestTimestamp": "2019-06-01T21:31:25.167Z",
+    "stock": [
+        {
+            "id": "1",
+            "timestamp": "2019-05-31T10:53:53.390Z",
+            "quantity": 229
+        }
+    ]
+}
+```
 
 ## Extract Feature enabled:
 The below are the add-on as feature.
