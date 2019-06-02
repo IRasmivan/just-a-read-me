@@ -361,13 +361,21 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 }
 ```
 
-## Extract Feature enabled:
+## 7. Extract Feature enabled:
 The below are the add-on as feature.
 * Swagger-UI
 * Docker
 
 
-### Run as Docker Container ![Docker container](https://img.icons8.com/color/50/000000/docker.png "Docker Container")
+### 7.1 Swagger 
+
+If you are running this application localy, then the swagger UI can be accessed via the below url.
+
+```
+http://localhost:8080/swagger-ui.html#/
+```
+
+### 7.2 Run as Docker Container ![Docker container](https://img.icons8.com/color/50/000000/docker.png "Docker Container")
 
 I have built a docker image and the same is available in [dockerhub](https://cloud.docker.com/u/rasmivan/repository/docker/rasmivan/commercetools). Run the below comment to run the docker image as container.
     
