@@ -365,3 +365,11 @@ Authorization: Basic dXNlcjpwYXNzd29yZA==
 The below are the add-on as feature.
 * Swagger-UI
 * Docker
+
+
+### Run as Docker Container ![Docker container](https://img.icons8.com/color/50/000000/docker.png "Docker Container")
+
+I have built a docker image and the same is available in [dockerhub](https://cloud.docker.com/u/rasmivan/repository/docker/rasmivan/commercetools). Run the below comment to run the docker image as container.
+    
+    docker run -p 8080:8080 -t rasmivan/commercetools:1.0
+
